@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BethanyGreenText" parent="TextAppearance.AppCompat">
+      <item name="android:textColor">#23cfa7</item>
+    </style>
+
+    <style name="BethanysTheme" parent="android:Theme.Material.Light">
+      <item name="android:colorPrimary">@color/bethanyGreen</item>
+      <item name="android:colorAccent">@color/bethanyBeige</item>
+    </style>
 </resources>
