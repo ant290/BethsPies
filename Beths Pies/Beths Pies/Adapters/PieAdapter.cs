@@ -20,11 +20,17 @@ namespace Beths_Pies.Adapters
     public class PieAdapter: RecyclerView.Adapter
     {
         private List<Pie> _pies;
+        public event EventHandler<int> ItemClick;
 
         public PieAdapter()
         {
             var pieRepository = new PieRepository();
             _pies = pieRepository.GetAllPies();
+        }
+
+        public PieAdapter(Category category)
+        {
+            _pies = category.Pies;
         }
 
         public override int ItemCount => _pies.Count;
@@ -45,10 +51,14 @@ namespace Beths_Pies.Adapters
             View itemView =
                 LayoutInflater.From(parent.Context).Inflate(Resource.Layout.Pie_viewHolder, parent, false);
 
-            PieViewHolder pieViewHolder = new PieViewHolder(itemView);
+            PieViewHolder pieViewHolder = new PieViewHolder(itemView, OnClick);
             return pieViewHolder;
         }
 
-        
+        void OnClick(int position)
+        {
+            var pieId = _pies[position].PieId;
+            ItemClick?.Invoke(this, pieId);
+        }
     }
 }

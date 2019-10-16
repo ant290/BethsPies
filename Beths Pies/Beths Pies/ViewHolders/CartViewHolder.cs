@@ -13,19 +13,16 @@ using Android.Widget;
 
 namespace Beths_Pies.ViewHolders
 {
-    public class PieViewHolder: RecyclerView.ViewHolder
+    public class CartViewHolder : RecyclerView.ViewHolder
     {
         public ImageView PieImageView { get; set; }
         public TextView PieNameTextView { get; set; }
-
-        public PieViewHolder(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
-        {
-        }
-
-        public PieViewHolder(View itemView, Action<int> listener) : base(itemView)
+        public TextView PieAmountTextView { get; set; }
+        public CartViewHolder(View itemView, Action<int> listener) : base(itemView)
         {
             PieImageView = itemView.FindViewById<ImageView>(Resource.Id.pieImageView);
             PieNameTextView = itemView.FindViewById<TextView>(Resource.Id.pieNameTextView);
+            PieAmountTextView = itemView.FindViewById<TextView>(Resource.Id.pieAmountTextView);
 
             itemView.Click += (sender, e) => listener(base.LayoutPosition);
         }

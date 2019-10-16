@@ -12,7 +12,7 @@
       <item name="android:textColor">#23cfa7</item>
     </style>
 
-    <style name="BethanysTheme" parent="android:Theme.Material.Light">
+    <style name="BethanysTheme" parent="Theme.AppCompat.Light">
       <item name="android:colorPrimary">@color/bethanyGreen</item>
       <item name="android:colorAccent">@color/bethanyBeige</item>
     </style>
