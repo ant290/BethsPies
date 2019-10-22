@@ -21,7 +21,7 @@ namespace Beths_Pies
         private RecyclerView.LayoutManager _pieLayoutManager;
         private PieAdapter _pieAdapter;
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override async void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
@@ -39,6 +39,7 @@ namespace Beths_Pies
 
             //pie adapter
             _pieAdapter = new PieAdapter();
+            await _pieAdapter.LoadData();
             _pieAdapter.ItemClick += _pieAdapter_ItemClick;
             _pieRecyclerView.SetAdapter(_pieAdapter);
         }

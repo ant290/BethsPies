@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -24,8 +24,14 @@ namespace Beths_Pies.Adapters
 
         public PieAdapter()
         {
-            var pieRepository = new PieRepository();
-            _pies = pieRepository.GetAllPies();
+            //var pieRepository = new PieRepository();
+            //_pies = pieRepository.GetAllPies();
+        }
+
+        public async Task LoadData()
+        {
+            var pieRepository = new PieRepositoryWeb();
+            _pies = await pieRepository.GetAllPies();
         }
 
         public PieAdapter(Category category)

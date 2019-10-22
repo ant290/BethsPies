@@ -6,7 +6,7 @@ using BethsPiesMobile.core.Models;
 
 namespace BethsPiesMobile.core.Repositories
 {
-    public class PieRepository
+    public class PieRepository : IPieRepository
     {
         private static readonly  Dictionary<string, Category> AllCategories = new Dictionary<string, Category>
         {
