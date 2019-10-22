@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
@@ -14,6 +15,7 @@ namespace Beths_Pies
         private Button _cartButton;
         private Button _aboutButton;
         private Button _orderWithTabsButton;
+        private Button _googleMapsButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -32,6 +34,14 @@ namespace Beths_Pies
             _cartButton.Click += _cartButton_Click;
             _aboutButton.Click += _aboutButton_Click;
             _orderWithTabsButton.Click += _orderWithTabsButton_Click;
+            _googleMapsButton.Click += _googleMapsButton_Click;
+        }
+
+        private void _googleMapsButton_Click(object sender, EventArgs e)
+        {
+            var geolocation = Android.Net.Uri.Parse("geo:50.850346,4.351721");
+            var intent = new Intent(Intent.ActionView, geolocation);
+            StartActivity(intent);
         }
 
         private void _orderWithTabsButton_Click(object sender, System.EventArgs e)
@@ -64,6 +74,7 @@ namespace Beths_Pies
             _cartButton = FindViewById<Button>(Resource.Id.cartButton);
             _aboutButton = FindViewById<Button>(Resource.Id.aboutButton);
             _orderWithTabsButton = FindViewById<Button>(Resource.Id.tabsButton);
+            _googleMapsButton = FindViewById<Button>(Resource.Id.googleMapsButton);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
